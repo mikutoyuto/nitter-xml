@@ -14,11 +14,7 @@ jobs:
         rm -rf nitter-xml
         
     - name: Checkout code
-      uses: actions/checkout@v2
-      with:
-          repository: mikutoyuto/nitter-xml
-          token: ${{ secrets.GH_TOKEN }}
-          path: nitter-xml
+      uses: actions/checkout@main
 
     - name: Clone Private Repository
       run: |
