@@ -34,4 +34,5 @@ jobs:
       with:
         github_token: ${{ secrets.GH_TOKEN }}
         publish_dir: ./ # 修正されたXMLファイルをGitHub Pagesにデプロイ
-
+        repo: mikutoyuto/nitter-xml
+        branch: main
