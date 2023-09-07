@@ -11,6 +11,7 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
           repository: mikutoyuto/nitter-xml
           token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           path: nitter-xml
