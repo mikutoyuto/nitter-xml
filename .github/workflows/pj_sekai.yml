@@ -39,6 +39,6 @@ jobs:
       run: |
         git config user.email "128672410+mikutoyuto@users.noreply.github.com"
         git config user.name "mikutoyuto"
-        git add "page.xml"
+        git add .
         git commit -m "Update XML"
         git push origin main
