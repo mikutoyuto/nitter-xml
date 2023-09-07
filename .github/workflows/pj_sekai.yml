@@ -15,6 +15,14 @@ jobs:
           repository: mikutoyuto/nitter-xml
           token: ${{ secrets.GH_TOKEN }}
           path: nitter-xml
+
+    - name: Clone Private Repository
+      run: |
+        git clone https://github.com/mikutoyuto/nitter-xml.git
+        cd nitter-xml
+        # リポジトリのURLをプライベートリポジトリのURLに置き換えてください。
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
           
     - name: Download XML
       run: |
