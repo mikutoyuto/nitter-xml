@@ -9,6 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Remove Directory
+      run: |
+        rm -rf nitter-xml
+        
     - name: Checkout code
       uses: actions/checkout@v2
       with:
@@ -18,12 +22,8 @@ jobs:
 
     - name: Clone Private Repository
       run: |
-        rm -rf nitter-xml
-        git clone https://github.com/mikutoyuto/nitter-xml.git
-        cd nitter-xml
-        # リポジトリのURLをプライベートリポジトリのURLに置き換えてください。
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        cd nitter-xml 
+        rm -f page.xml
           
     - name: Download XML
       run: |
