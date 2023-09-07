@@ -18,7 +18,6 @@ jobs:
 
     - name: Clone Private Repository
       run: |
-        cd nitter-xml 
         rm -f page.xml
           
     - name: Download XML
