@@ -18,6 +18,7 @@ jobs:
 
     - name: Clone Private Repository
       run: |
+        rm -rf nitter-xml
         git clone https://github.com/mikutoyuto/nitter-xml.git
         cd nitter-xml
         # リポジトリのURLをプライベートリポジトリのURLに置き換えてください。
