@@ -11,7 +11,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+          repository: mikutoyuto/nitter-xml
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          path: nitter-xml
+          
     - name: Download XML
       run: |
         wget -O "page.xml" "https://nitter.cz/pj_sekai/search/rss?f=tweets&q=exclude%3Areplies+OR+to%3Apj_sekai"
@@ -22,17 +25,10 @@ jobs:
         sed -i 's/nitter.cz/twitter.com/g' "page.xml"
       # ファイル名をダブルクォーテーションで囲みます
 
-    - name: Upload to GitHub
-      uses: actions/upload-artifact@v2
-      with:
-        name: modified-xml
-        path: "page.xml"
-      # ファイル名をダブルクォーテーションで囲みます
-
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GH_TOKEN }}
-        publish_dir: ./ # 修正されたXMLファイルをGitHub Pagesにデプロイ
-        repo: mikutoyuto/nitter-xml
-        branch: main
+    - name: Commit and Push Changes
+      run: |
+        git config user.email "128672410+mikutoyuto@users.noreply.github.com"
+        git config user.name "mikutoyuto"
+        git add "page.xml"
+        git commit -m "Update XML"
+        git push origin main
