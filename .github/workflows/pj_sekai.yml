@@ -47,6 +47,6 @@ jobs:
       run: |
         git config user.email "128672410+mikutoyuto@users.noreply.github.com"
         git config user.name "mikutoyuto"
-        git add . 2>&1
-        git commit -m "Update XML" 2>&1
-        git push origin main 2>&1
+        git add .
+        git commit -m "Update XML" || echo "nothing to commit"
+        git push origin main
