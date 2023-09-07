@@ -1,0 +1,37 @@
+name: Download and Replace XML
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  download_replace:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Download XML
+      run: |
+        wget -O "page.xml" "https://nitter.cz/pj_sekai/search/rss?f=tweets&q=exclude%3Areplies+OR+to%3Apj_sekai"
+      # URLと出力ファイル名をダブルクォーテーションで囲みます
+
+    - name: Replace text
+      run: |
+        sed -i 's/nitter.cz/twitter.com/g' "page.xml"
+      # ファイル名をダブルクォーテーションで囲みます
+
+    - name: Upload to GitHub
+      uses: actions/upload-artifact@v2
+      with:
+        name: modified-xml
+        path: "page.xml"
+      # ファイル名をダブルクォーテーションで囲みます
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./ # 修正されたXMLファイルをGitHub Pagesにデプロイ
+
