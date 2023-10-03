@@ -35,12 +35,12 @@ jobs:
           
     - name: Download XML
       run: |
-        wget -O "sub.xml" "https://nitter.services.woodland.cafe/pj_sekai/search/rss?f=tweets&q=exclude%3Areplies+OR+to%3Apj_sekai"
+        wget -O "sub.xml" "https://nitter.woodland.cafe/pj_sekai/search/rss?f=tweets&q=exclude%3Areplies+OR+to%3Apj_sekai"
       # URLと出力ファイル名をダブルクォーテーションで囲みます
 
     - name: Replace text
       run: |
-        sed -i 's/nitter.services.woodland.cafe/twitter.com/g' "sub.xml"
+        sed -i 's/nitter.woodland.cafe/twitter.com/g' "sub.xml"
       # ファイル名をダブルクォーテーションで囲みます
 
     - name: Commit and Push Changes
