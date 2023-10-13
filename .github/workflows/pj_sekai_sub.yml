@@ -1,7 +1,7 @@
 name: Download and Replace XML
 on:
   schedule:
-      - cron: "*/30 * * * *"
+      - cron: "*/10 * * * *"
   push:
     branches:
       - main
