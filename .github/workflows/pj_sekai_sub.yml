@@ -40,7 +40,7 @@ jobs:
 
     - name: Replace text
       run: |
-        sed -i 's/nitter.woodland.cafe/twitter.com/g' "sub.xml"
+        sed -i 's/nitter.woodland.cafe/vxtwitter.com/g' "sub.xml"
       # ファイル名をダブルクォーテーションで囲みます
 
     - name: Commit and Push Changes
