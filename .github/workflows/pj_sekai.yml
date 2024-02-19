@@ -35,7 +35,7 @@ jobs:
           
     - name: Download XML
       run: |
-        wget -O "page.xml" "https://nitter.cz/pj_sekai/search/rss?f=tweets&q=exclude%3Areplies+OR+to%3Apj_sekai"
+        wget -O "page.xml" "https://nitter.poast.org/pj_sekai/search/rss?f=tweets&q=exclude%3Areplies+OR+to%3Apj_sekai"
       # URLと出力ファイル名をダブルクォーテーションで囲みます
 
     - name: Replace text
